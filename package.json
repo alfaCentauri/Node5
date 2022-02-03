@@ -1,28 +1,28 @@
 {
-    "name": "node5",
-    "version": "1.0.0",
-    "description": "Ejemplo #5 de nodejs",
-    "main": "app.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/alfaCentauri/Node5.git"
-    },
-    "keywords": [
-      "nodejs",
-      "lodash",
-      "yargs",
-      "request"
-    ],
-    "author": "ricardopresilla@gmail.com",
-    "license": "GPL-3.0 License",
-    "dependencies": {
-      "lodash": "^4.17.21",
-      "nodemon": "^2.0.15",
-      "request": "^2.88.2",
-      "yargs": "^14.2.3"
-    }
+  "name": "node5",
+  "version": "1.0.0",
+  "description": "Ejemplo #5 de nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alfaCentauri/Node5.git"
+  },
+  "keywords": [
+    "nodejs",
+    "lodash",
+    "yargs",
+    "request"
+  ],
+  "author": "ricardopresilla@gmail.com",
+  "license": "GPL-3.0 License",
+  "dependencies": {
+    "express": "^4.17.2",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.15",
+    "request": "^2.88.2",
+    "yargs": "^14.2.3"
   }
-  
+}
