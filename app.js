@@ -2,16 +2,18 @@ const express = require('express');
 const app = express();
 
 let isLogin = () => true;
-let logger = () => {
+let logger = (request, response, next) => {
     console.log("La petición es: %s", request.method );
     next();
 };
-let showIp = () => {
-    console.log("La IP es: 127.0.0.1" );
+let showIp = (request, response, next) => {
+    var ip = request.connection.remoteAddress;
+    console.log("La IP es: " + ip );
     next();
 };
+
 let html = '<div class="container-fluid"> <h1>Bienvenido al sitio web</h1> <br> <p>Sección publica.</p> </div>';
-app.use((request, response, next) => {
+app.use((request, response, next) => {    
     if(isLogin){
         next();
     }
@@ -19,7 +21,9 @@ app.use((request, response, next) => {
         html += '<div class="container-fluid"> <p>No estas autorizado.</p> </div>';
         response.send(html);
     }
-}, logger, showIp);
+}, showIp );
+
+app.use(logger);
 
 app.get("/", (request, response) => {
     response.send(html);
