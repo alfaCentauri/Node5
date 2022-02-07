@@ -1,4 +1,5 @@
 const express = require('express');
+const argv = require('yargs');
 const app = express();
 
 let isLogin = () => true;
@@ -11,13 +12,14 @@ let showIp = (request, response, next) => {
     console.log("La IP es: " + ip );
     next();
 };
+let usuario = argv.argv.usuario;
 
 let html = '<div class="container-fluid"> <h1>Bienvenido al sitio web</h1> <br> <p>Sección publica.</p> </div>';
 app.use((request, response, next) => {    
     if(isLogin){
         next();
     }
-    else{
+    else{        
         html += '<div class="container-fluid"> <p>No estas autorizado.</p> </div>';
         response.send(html);
     }
@@ -35,7 +37,7 @@ app.get("/home", (request, response) => {
 });
 
 app.post("/login", (request, response) => {
-    html += '<div class="container-fluid"><p class="login">Este es el login de usuario.</p></div>';
+    html += '<div class="container-fluid"> <p class="login">El usuario es: ' + usuario + '. Estas en el panel del usuario.</p></div>';
     response.send(html);
 });
 
